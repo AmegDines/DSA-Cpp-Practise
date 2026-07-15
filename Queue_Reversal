@@ -1,0 +1,15 @@
+class Solution {
+  public:
+    void reverseQueue(queue<int> &q) {
+        int si = q.size();
+        stack<int> stac;
+        while(!q.empty()){
+            stac.push(q.front());
+            q.pop();
+        }
+        while(!stac.empty()){
+            q.push(stac.top());
+            stac.pop();
+        }
+    }
+};
