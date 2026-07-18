@@ -1,0 +1,19 @@
+class Solution {
+  public:
+    vector<int> findEvenOccurrences(vector<int>& arr) {
+        vector<int> a;
+        unordered_map<int,int> mp;
+        for(int num : arr){
+            mp[num]++;
+        }
+        unordered_set<int> visited;
+        for(int num: arr){
+            if(mp[num]%2 == 0 && visited.find(num) == visited.end()){
+                a.push_back(num);
+                visited.insert(num);
+            }
+        }
+        if(a.empty())return {-1};
+        else return a;
+    }
+};
